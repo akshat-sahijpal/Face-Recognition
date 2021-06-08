@@ -78,7 +78,6 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
             bindPreview(prov)
         }, ContextCompat.getMainExecutor(requireContext()))
     }
-
     private fun bindPreview(prov: ProcessCameraProvider) {
         prov.unbindAll()
         val preview = Preview.Builder()
@@ -91,7 +90,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         preview.setSurfaceProvider(surface)
         imageCapture = view?.display?.let {
             ImageCapture.Builder()
-                .setFlashMode(ImageCapture.FLASH_MODE_AUTO)
+                .setFlashMode(ImageCapture.FLASH_MODE_ON)
                 .setTargetAspectRatio(AspectRatio.RATIO_16_9) // width:height
                 .setTargetRotation(it.rotation)
                 .build()
